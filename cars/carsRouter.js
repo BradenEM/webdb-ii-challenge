@@ -11,4 +11,14 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post("/", async (req, res) => {
+  const car = req.body;
+
+  try {
+    res.status(201).json(car);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
