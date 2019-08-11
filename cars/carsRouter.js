@@ -12,7 +12,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const car = req.body;
+  const body = req.body;
+  const car = await db("cars").insert(body);
 
   try {
     res.status(201).json(car);
